@@ -281,7 +281,8 @@ void MainWindow::Userleave(QString cusId)
     });
 
     leaveAnime->setDuration(2000);
-    leaveAnime->setStartValue(mEndCarPos);
+    leaveAnime->setStartValue(QRect(360,240,241,171));
+    qDebug()<<"mEndcarpos: "<<mEndCarPos;
     leaveAnime->setEndValue(mStartCarPos);
     leaveAnime->start();
 
