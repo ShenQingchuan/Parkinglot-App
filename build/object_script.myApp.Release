@@ -1,0 +1,14 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\parkinglot.o
+./release\pslot.o
+./release\announce.o
+./release\customer.o
+./release\waitqueue.o
+./release\nowinfo.o
+./release\qrc_appicon.o
+./release\moc_mainwindow.o
+./release\moc_customer.o
+./release\moc_nowinfo.o
+);

@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>icon.ico</file>
+        <file>car.png</file>
+        <file>parkinglot.png</file>
+        <file>e.gif</file>
+        <file>0.png</file>
+        <file>1.png</file>
+        <file>2.png</file>
+        <file>3.png</file>
+        <file>4.png</file>
+        <file>5.png</file>
+        <file>6.png</file>
+        <file>7.png</file>
+        <file>logo.png</file>
+        <file>pkt0.png</file>
+        <file>pkt1.png</file>
+        <file>pkt2.png</file>
+        <file>pkt3.png</file>
+        <file>pkt4.png</file>
+        <file>pkt5.png</file>
+        <file>el.gif</file>
+        <file>in.gif</file>
+        <file>NoEnoughPay.wav</file>
+        <file>PaySuccess.wav</file>
+        <file>SeeYou.wav</file>
+        <file>sorryForNoService.wav</file>
+        <file>entry.wav</file>
+        <file>welcome.wav</file>
+    </qresource>
+</RCC>

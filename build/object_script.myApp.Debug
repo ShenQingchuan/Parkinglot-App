@@ -1,0 +1,14 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\parkinglot.o
+./debug\pslot.o
+./debug\announce.o
+./debug\customer.o
+./debug\waitqueue.o
+./debug\nowinfo.o
+./debug\qrc_appicon.o
+./debug\moc_mainwindow.o
+./debug\moc_customer.o
+./debug\moc_nowinfo.o
+);
