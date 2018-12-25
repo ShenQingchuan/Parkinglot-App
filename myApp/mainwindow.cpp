@@ -51,25 +51,24 @@ MainWindow::MainWindow(QWidget *parent) :
     // 从数据库中加载上一次关闭程序后保存的Cache余留信息:
     QString s = QString("select * from parkingCache ;");
     mQuery.exec(s);
-    for(int i=0; mQuery.next(); i++){
-        Nowinfo *item = new Nowinfo(nullptr, QString(mQuery.value(0).toString()));
-        qDebug()<<"Item cusId: "<< mQuery.value(0);
-        // 保存某一条数据中他的进站时间, 用QDateTime类从时间戳转化成时间然后用.secsTo算时间差
-        QString itemEntryTime_t = QString(mQuery.value(1).toString());
-        qDebug()<<"Item EntryTime: "<< itemEntryTime_t;
 
-        // 获取两个 QDateTime 对象
+    // 把缓存中的数据回显进 Nowlist 的视图中..
+    for(int i=0; mQuery.next(); i++){
+        qDebug()<<"Item cusId: "<< mQuery.value(0);
+        // 保存某一条数据中他的进站时间字符串
+        QString itemEntryTime_t = QString(mQuery.value(1).toString());
+        // qDebug()<<"Item EntryTime: "<< itemEntryTime_t;
+
+        // 生成两个 QDateTime 对象，用QDateTime类从刚才的时间字符串转化成时间然后用.secsTo算时间差
         QDateTime curTime = QDateTime::currentDateTime();
         QDateTime itemEntryTime = QDateTime::fromString(itemEntryTime_t, "yyyy-MM-dd hh:mm:ss");
 
-        // 计算时间差
         qint64 itemStayTime_d = itemEntryTime.secsTo(curTime);
-        qDebug()<< "Time dec: " << itemStayTime_d;
-        QString itemStayTime = QString::number(itemStayTime_d);
+        // qDebug()<< "Time dec: " << itemStayTime_d;
 
-        // 为了让 Nowinfo *item 的每秒刷新工具正常工作, 还需要将 itemEntryTime_d..
-        item->setEn_time_d(itemStayTime_d);
-        item->setStay_time(itemStayTime);
+        // 构造一个新 Nowinfo 对象, 记得把 在站时间的缓存数据(qint64)传入!
+        Nowinfo *item = new Nowinfo(nullptr, QString(mQuery.value(0).toString()), itemStayTime_d);
+        item->setEn_time(itemEntryTime_t);
 
         mPark->getNowlist()->append(item);
     }
@@ -239,7 +238,7 @@ void MainWindow::newUserEntry(QString cusId)
         carImg->stop();
         mEndCarPos = ui->carGraphics->geometry();
 
-        Nowinfo* newEntry = new Nowinfo(nullptr, cusId);
+        Nowinfo* newEntry = new Nowinfo(nullptr, cusId, 0);
         (mPark->getNowlist())->append(newEntry);
         displayRemain();
         displayNowlist();
@@ -373,10 +372,31 @@ void MainWindow::displayRemain()
     case 0:
         parkImg = QPixmap(":/new/prefix1/0.png").scaled(541, 341);
         ui->parkinglotGraphics->setPixmap(parkImg);
-        parkImg = QPixmap(":/new/prefix1/pkt0.png").scaled(381, 281);
-        ui->pkTwoGraphics->setPixmap(parkImg);
+        if(mPark->getWq()->length() != 0){
+            qDebug()<<"switch 2 here..";
+            switch (mPark->getWq()->length()) {
+            case 1:
+                parkImg = QPixmap(":/queue1.png").scaled(381, 281);
+                ui->pkTwoGraphics->setPixmap(parkImg);
+                break;
+            case 2:
+                parkImg = QPixmap(":/queue2.png").scaled(381, 281);
+                ui->pkTwoGraphics->setPixmap(parkImg);
+                break;
+            default:
+                parkImg = QPixmap(":/queue3.png").scaled(381, 281);
+                ui->pkTwoGraphics->setPixmap(parkImg);
+                break;
+            }
+        }
+        else{
+            parkImg = QPixmap(":/new/prefix1/pkt0.png").scaled(381, 281);
+            ui->pkTwoGraphics->setPixmap(parkImg);
+        }
         break;
     }
+
+
 }
 
 void MainWindow::on_entryBtn_clicked()
@@ -402,6 +422,7 @@ void MainWindow::on_entryBtn_clicked()
                 mPark->getWq()->enqueue(c);
 
                 displayWaitqueue();
+                displayRemain();
 
             }else{ /* 用户选择了不排队 */
                 QSound::play(":/new/prefix1/sorryForNoService.wav");
@@ -537,26 +558,6 @@ void MainWindow::on_leaveBtn_clicked()
     }
 }
 
-void MainWindow::on_actionAdmin_clicked()
-{
-
-}
-
-void MainWindow::on_actionUser_clicked()
-{
-
-}
-
-void MainWindow::on_actionHelp_clicked()
-{
-
-}
-
-void MainWindow::on_actionAbout_clicked()
-{
-
-}
-
 QRect MainWindow::getmStartCarPos() const
 {
     return mStartCarPos;
@@ -588,3 +589,10 @@ void MainWindow::closeEvent(QCloseEvent *e)
       e->ignore();
 
 }
+
+void MainWindow::on_actionAbout_triggered()
+{
+    About *a = new About();
+    a->show();
+}
+

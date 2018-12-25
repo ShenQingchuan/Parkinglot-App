@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "about.h"
 #include "parkinglot.h"
 #include <QSqlDatabase>
 #include <QSqlError>
@@ -52,6 +53,7 @@ protected:
     void closeEvent(QCloseEvent *e);
 
 private slots:
+
     void on_refreshBtn_clicked();
 
     void on_entryBtn_clicked();
@@ -61,10 +63,8 @@ private slots:
     void on_leaveBtn_clicked();
 
     // 菜单栏槽函数:
-    void on_actionAdmin_clicked();
-    void on_actionUser_clicked();
-    void on_actionHelp_clicked();
-    void on_actionAbout_clicked();
+
+    void on_actionAbout_triggered();
 
 private:
     Ui::MainWindow *ui;

@@ -33,7 +33,8 @@ SOURCES += \
     pslot.cpp \
     announce.cpp \
     nowinfo.cpp \
-    customer.cpp
+    customer.cpp \
+    about.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -41,10 +42,12 @@ HEADERS += \
     parkinglot.h \
     announce.h \
     nowinfo.h \
-    customer.h
+    customer.h \
+    about.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    about.ui
 
 RESOURCES += \
     appicon.qrc \

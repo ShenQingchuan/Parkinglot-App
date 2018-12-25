@@ -16,14 +16,18 @@ void Nowinfo::setEn_time_d(const qint64 &value)
     en_time_d = value;
 }
 
+void Nowinfo::setEn_time(const QString &value)
+{
+    en_time = value;
+}
+
 Nowinfo::Nowinfo(QObject *parent) : QObject(parent)
 {
     // no Params Costructor.
 }
 
-Nowinfo::Nowinfo(QObject *parent, QString cId) : QObject(parent), carId(cId)
+Nowinfo::Nowinfo(QObject *parent, QString cId, qint64 en_time_d): QObject(parent), carId(cId), en_time_d(en_time_d)
 {
-    en_time_d = 0;
     QDateTime *datetime = new QDateTime(QDateTime::currentDateTime());
     en_time = datetime->currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
     // 费用初始化为 0.00 元
@@ -33,6 +37,7 @@ Nowinfo::Nowinfo(QObject *parent, QString cId) : QObject(parent), carId(cId)
     connect(eTimer, SIGNAL(timeout()), this, SLOT(singleRefresh()));
     eTimer->start(1000);
 }
+
 
 Nowinfo::~Nowinfo(){ /* destroyed.. */ }
 

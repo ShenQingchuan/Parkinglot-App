@@ -21,7 +21,7 @@ private:
 
 public:
     explicit Nowinfo(QObject *parent = nullptr);
-    Nowinfo(QObject *parent = nullptr, QString cId = "");
+    Nowinfo(QObject *parent = nullptr, QString cId = "", qint64 en_time_d = 0);
     ~Nowinfo();
 
     void incStaytime();
@@ -34,6 +34,7 @@ public:
 
     qint64 getEn_time_d() const;
     void setEn_time_d(const qint64 &value);
+    void setEn_time(const QString &value);
 
 private slots:
     void singleRefresh();

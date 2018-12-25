@@ -27,5 +27,11 @@
         <file>sorryForNoService.wav</file>
         <file>entry.wav</file>
         <file>welcome.wav</file>
+        <file>GitHub.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>queue1.png</file>
+        <file>queue2.png</file>
+        <file>queue3.png</file>
     </qresource>
 </RCC>

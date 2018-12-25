@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>About</class>
+ <widget class="QDialog" name="About">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>225</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>关于作者</string>
+  </property>
+  <widget class="QLabel" name="authorLabel">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>10</y>
+     <width>241</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 20pt &quot;华康俪金黑W8&quot;;</string>
+   </property>
+   <property name="text">
+    <string>制作者: 沈青川</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="githubUrlLabel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>150</y>
+     <width>381</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;华文新魏&quot;;</string>
+   </property>
+   <property name="text">
+    <string>GitHub: https://github.com/ShenQingchuan</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="githubLogo">
+   <property name="geometry">
+    <rect>
+     <x>131</x>
+     <y>64</y>
+     <width>121</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>githubUrlLabel</zorder>
+  <zorder>authorLabel</zorder>
+  <zorder>githubLogo</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
