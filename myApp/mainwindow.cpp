@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // 初始化 nowlist View 的一些属性:
     ui->nowlist_table->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+    ui->waitqueue_table->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
     ui->nowlist_table->setRowCount(12);
     ui->nowlist_table->setEditTriggers(QAbstractItemView::NoEditTriggers);  //设置表格不可编辑
     ui->waitqueue_table->setEditTriggers(QAbstractItemView::NoEditTriggers);
