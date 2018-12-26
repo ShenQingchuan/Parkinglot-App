@@ -34,7 +34,8 @@ SOURCES += \
     announce.cpp \
     nowinfo.cpp \
     customer.cpp \
-    about.cpp
+    about.cpp \
+    userqueryform.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -43,11 +44,13 @@ HEADERS += \
     announce.h \
     nowinfo.h \
     customer.h \
-    about.h
+    about.h \
+    userqueryform.h
 
 FORMS += \
         mainwindow.ui \
-    about.ui
+    about.ui \
+    userqueryform.ui
 
 RESOURCES += \
     appicon.qrc \

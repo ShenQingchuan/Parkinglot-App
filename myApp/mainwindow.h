@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "about.h"
+#include "userqueryform.h"
 #include "parkinglot.h"
 #include <QSqlDatabase>
 #include <QSqlError>
@@ -65,6 +66,8 @@ private slots:
     // 菜单栏槽函数:
 
     void on_actionAbout_triggered();
+
+    void on_actionUser_triggered();
 
 private:
     Ui::MainWindow *ui;

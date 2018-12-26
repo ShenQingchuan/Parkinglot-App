@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UserQueryForm</class>
+ <widget class="QDialog" name="UserQueryForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>用户余额查询</string>
+  </property>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>210</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 14pt &quot;华康俪金黑W8(P)&quot;;</string>
+   </property>
+   <property name="text">
+    <string>查询卡内余额</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="queryTitle">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>20</y>
+     <width>201</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;华康俪金黑W8(P)&quot;;</string>
+   </property>
+   <property name="text">
+    <string>用户停车卡查询</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="inputLabel">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>80</y>
+     <width>91</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 10pt &quot;等线&quot;;</string>
+   </property>
+   <property name="text">
+    <string>输入车牌号</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="balanceLabel">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>140</y>
+     <width>91</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 16pt &quot;等线&quot;;</string>
+   </property>
+   <property name="text">
+    <string>余额:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="balanceView">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>140</y>
+     <width>271</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 14pt &quot;等线&quot;;</string>
+   </property>
+   <property name="text">
+    <string>0.00</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="inputBox">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>80</y>
+     <width>231</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 14pt &quot;等线&quot;;</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

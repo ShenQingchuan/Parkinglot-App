@@ -543,6 +543,9 @@ void MainWindow::on_leaveBtn_clicked()
             }
         }
 
+        else{
+            QMessageBox::critical(this, "错误信息", "停车场内并没有这辆车哦！");
+        }
     }
 
     // 结束完出站的工作, 立即检查当前是否有空位了,
@@ -598,3 +601,8 @@ void MainWindow::on_actionAbout_triggered()
     a->show();
 }
 
+void MainWindow::on_actionUser_triggered()
+{
+    UserQueryForm *u = new UserQueryForm();
+    u->show();
+}

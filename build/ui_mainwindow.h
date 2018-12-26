@@ -28,7 +28,6 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QAction *actionAdmin;
     QAction *actionUser;
     QAction *actionHelp;
     QAction *actionAbout;
@@ -63,8 +62,6 @@ public:
         QIcon icon;
         icon.addFile(QStringLiteral(":/new/prefix1/icon.ico"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
-        actionAdmin = new QAction(MainWindow);
-        actionAdmin->setObjectName(QStringLiteral("actionAdmin"));
         actionUser = new QAction(MainWindow);
         actionUser->setObjectName(QStringLiteral("actionUser"));
         actionHelp = new QAction(MainWindow);
@@ -168,8 +165,6 @@ public:
 
         menuBar->addAction(menuCommand->menuAction());
         menuBar->addAction(menuHelp->menuAction());
-        menuCommand->addSeparator();
-        menuCommand->addAction(actionAdmin);
         menuCommand->addAction(actionUser);
         menuHelp->addAction(actionHelp);
         menuHelp->addAction(actionAbout);
@@ -182,7 +177,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        actionAdmin->setText(QApplication::translate("MainWindow", "\347\256\241\347\220\206\345\221\230\345\220\216\345\217\260", nullptr));
         actionUser->setText(QApplication::translate("MainWindow", "\347\224\250\346\210\267\346\237\245\350\257\242\345\267\245\345\205\267", nullptr));
         actionHelp->setText(QApplication::translate("MainWindow", "\344\275\277\347\224\250\345\270\256\345\212\251", nullptr));
         actionAbout->setText(QApplication::translate("MainWindow", "\345\205\263\344\272\216\346\210\221\344\273\254", nullptr));

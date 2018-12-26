@@ -320,8 +320,6 @@
     <property name="title">
      <string>操作菜单</string>
     </property>
-    <addaction name="separator"/>
-    <addaction name="actionAdmin"/>
     <addaction name="actionUser"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
@@ -334,11 +332,6 @@
    <addaction name="menuCommand"/>
    <addaction name="menuHelp"/>
   </widget>
-  <action name="actionAdmin">
-   <property name="text">
-    <string>管理员后台</string>
-   </property>
-  </action>
   <action name="actionUser">
    <property name="text">
     <string>用户查询工具</string>
