@@ -7,10 +7,6 @@ QList<Nowinfo *>* Parkinglot::getNowlist()
 }
 
 
-Announce *Parkinglot::getAnnc() const
-{
-    return annc;
-}
 
 QQueue<Customer *> *Parkinglot::getWq()
 {
@@ -22,7 +18,6 @@ QQueue<Customer *> *Parkinglot::getWq()
 Parkinglot::Parkinglot()
 {
     /* 初始化 收入额为0 余车位为50 */
-    annc = new Announce();
     mIncome = 0;
     mRemain = 12;
 }

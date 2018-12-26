@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     setFixedSize(this->width(), this->height());
 
-    QSound::play(":/new/prefix1/welcome.wav");
+    QSound::play(":/welcome.wav");
 
     // member var initialize: 成员函数初始化
     mTimeCount = 0;
@@ -33,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     displayRemain();
 
     // 设置logo图片:
-    QPixmap logoImg = QPixmap(":/new/prefix1/logo.png").scaled(ui->logo->size());
+    QPixmap logoImg = QPixmap(":/logo.png").scaled(ui->logo->size());
     ui->logo->setPixmap(logoImg);
 
     // init ui from data model..
@@ -212,7 +212,7 @@ void MainWindow::newUserEntry(QString cusId)
     mPark->decRemain();  //　余位-1
 
     // 动画效果...
-    QMovie *carImg = new QMovie(":/new/prefix1/e.gif");
+    QMovie *carImg = new QMovie(":/e.gif");
     carImg->setScaledSize(ui->carGraphics->size());
     ui->carGraphics->setMovie(carImg);
     carImg->start();
@@ -225,7 +225,7 @@ void MainWindow::newUserEntry(QString cusId)
     connect(startAnime, &QPropertyAnimation::finished, [=]{
         ui->carGraphics->setVisible(false);
 //          尝试in.gif 失败
-//        QMovie *inImg = new QMovie(":/new/prefix1/in.gif");
+//        QMovie *inImg = new QMovie(":/in.gif");
 //        inImg->setScaledSize(ui->pkTwoGraphics->size());
 //        inImg->setSpeed(200);
 //        ui->pkTwoGraphics->setMovie(inImg);
@@ -234,7 +234,7 @@ void MainWindow::newUserEntry(QString cusId)
 //        connect(inImg, SIGNAL(QMovie::finished), this, SLOT(exDisplayRemain()));
 
         refreshRemainView();
-        QSound::play(":/new/prefix1/entry.wav");
+        QSound::play(":/entry.wav");
         // 确认进站动画结束后, 看上去像是真的进站了, 然后刷新在站内车辆列表
         carImg->stop();
         mEndCarPos = ui->carGraphics->geometry();
@@ -257,7 +257,7 @@ void MainWindow::newUserEntry(QString cusId)
 void MainWindow::Userleave(QString cusId)
 {
     // 翻转图片
-    QMovie *carImg = new QMovie(":/new/prefix1/el.gif");
+    QMovie *carImg = new QMovie(":/el.gif");
     carImg->setScaledSize(ui->carGraphics->size());
     ui->carGraphics->setMovie(carImg);
     carImg->start();
@@ -302,77 +302,77 @@ void MainWindow::displayRemain()
     QPixmap parkImg;
     switch (mPark->getRemain()) {
     case 12:
-        parkImg = QPixmap(":/new/prefix1/7.png").scaled(561, 341);
+        parkImg = QPixmap(":/7.png").scaled(561, 341);
         ui->parkinglotGraphics->setPixmap(parkImg);
-        parkImg = QPixmap(":/new/prefix1/pkt5.png").scaled(381, 281);
+        parkImg = QPixmap(":/pkt5.png").scaled(381, 281);
         ui->pkTwoGraphics->setPixmap(parkImg);
         break;
     case 11:
-        parkImg = QPixmap(":/new/prefix1/7.png").scaled(561, 341);
+        parkImg = QPixmap(":/7.png").scaled(561, 341);
         ui->parkinglotGraphics->setPixmap(parkImg);
-        parkImg = QPixmap(":/new/prefix1/pkt4.png").scaled(381, 281);
+        parkImg = QPixmap(":/pkt4.png").scaled(381, 281);
         ui->pkTwoGraphics->setPixmap(parkImg);
         break;
     case 10:
-        parkImg = QPixmap(":/new/prefix1/7.png").scaled(561, 341);
+        parkImg = QPixmap(":/7.png").scaled(561, 341);
         ui->parkinglotGraphics->setPixmap(parkImg);
-        parkImg = QPixmap(":/new/prefix1/pkt3.png").scaled(381, 281);
+        parkImg = QPixmap(":/pkt3.png").scaled(381, 281);
         ui->pkTwoGraphics->setPixmap(parkImg);
         break;
     case 9:
-        parkImg = QPixmap(":/new/prefix1/7.png").scaled(561, 341);
+        parkImg = QPixmap(":/7.png").scaled(561, 341);
         ui->parkinglotGraphics->setPixmap(parkImg);
-        parkImg = QPixmap(":/new/prefix1/pkt2.png").scaled(381, 281);
+        parkImg = QPixmap(":/pkt2.png").scaled(381, 281);
         ui->pkTwoGraphics->setPixmap(parkImg);
         break;
     case 8:
-        parkImg = QPixmap(":/new/prefix1/7.png").scaled(561, 341);
+        parkImg = QPixmap(":/7.png").scaled(561, 341);
         ui->parkinglotGraphics->setPixmap(parkImg);
-        parkImg = QPixmap(":/new/prefix1/pkt1.png").scaled(381, 281);
+        parkImg = QPixmap(":/pkt1.png").scaled(381, 281);
         ui->pkTwoGraphics->setPixmap(parkImg);
         break;
     case 7:
-        parkImg = QPixmap(":/new/prefix1/7.png").scaled(561, 341);
+        parkImg = QPixmap(":/7.png").scaled(561, 341);
         ui->parkinglotGraphics->setPixmap(parkImg);
-        parkImg = QPixmap(":/new/prefix1/pkt0.png").scaled(381, 281);
+        parkImg = QPixmap(":/pkt0.png").scaled(381, 281);
         ui->pkTwoGraphics->setPixmap(parkImg);
         break;
     case 6:
-        parkImg = QPixmap(":/new/prefix1/6.png").scaled(561, 341);
+        parkImg = QPixmap(":/6.png").scaled(561, 341);
         ui->parkinglotGraphics->setPixmap(parkImg);
-        parkImg = QPixmap(":/new/prefix1/pkt0.png").scaled(381, 281);
+        parkImg = QPixmap(":/pkt0.png").scaled(381, 281);
         ui->pkTwoGraphics->setPixmap(parkImg);
         break;
     case 5:
-        parkImg = QPixmap(":/new/prefix1/5.png").scaled(561, 341);
+        parkImg = QPixmap(":/5.png").scaled(561, 341);
         ui->parkinglotGraphics->setPixmap(parkImg);
-        parkImg = QPixmap(":/new/prefix1/pkt0.png").scaled(381, 281);
+        parkImg = QPixmap(":/pkt0.png").scaled(381, 281);
         ui->pkTwoGraphics->setPixmap(parkImg);
         break;
     case 4:
-        parkImg = QPixmap(":/new/prefix1/4.png").scaled(561, 341);
+        parkImg = QPixmap(":/4.png").scaled(561, 341);
         ui->parkinglotGraphics->setPixmap(parkImg);
         break;
     case 3:
-        parkImg = QPixmap(":/new/prefix1/3.png").scaled(561, 341);
+        parkImg = QPixmap(":/3.png").scaled(561, 341);
         ui->parkinglotGraphics->setPixmap(parkImg);
-        parkImg = QPixmap(":/new/prefix1/pkt0.png").scaled(381, 281);
+        parkImg = QPixmap(":/pkt0.png").scaled(381, 281);
         ui->pkTwoGraphics->setPixmap(parkImg);
         break;
     case 2:
-        parkImg = QPixmap(":/new/prefix1/2.png").scaled(561, 291);
+        parkImg = QPixmap(":/2.png").scaled(561, 291);
         ui->parkinglotGraphics->setPixmap(parkImg);
-        parkImg = QPixmap(":/new/prefix1/pkt0.png").scaled(381, 281);
+        parkImg = QPixmap(":/pkt0.png").scaled(381, 281);
         ui->pkTwoGraphics->setPixmap(parkImg);
         break;
     case 1:
-        parkImg = QPixmap(":/new/prefix1/1.png").scaled(561, 341);
+        parkImg = QPixmap(":/1.png").scaled(561, 341);
         ui->parkinglotGraphics->setPixmap(parkImg);
-        parkImg = QPixmap(":/new/prefix1/pkt0.png").scaled(381, 281);
+        parkImg = QPixmap(":/pkt0.png").scaled(381, 281);
         ui->pkTwoGraphics->setPixmap(parkImg);
         break;
     case 0:
-        parkImg = QPixmap(":/new/prefix1/0.png").scaled(541, 341);
+        parkImg = QPixmap(":/0.png").scaled(541, 341);
         ui->parkinglotGraphics->setPixmap(parkImg);
         if(mPark->getWq()->length() != 0){
             qDebug()<<"switch 2 here..";
@@ -392,7 +392,7 @@ void MainWindow::displayRemain()
             }
         }
         else{
-            parkImg = QPixmap(":/new/prefix1/pkt0.png").scaled(381, 281);
+            parkImg = QPixmap(":/pkt0.png").scaled(381, 281);
             ui->pkTwoGraphics->setPixmap(parkImg);
         }
         break;
@@ -427,7 +427,7 @@ void MainWindow::on_entryBtn_clicked()
                 displayRemain();
 
             }else{ /* 用户选择了不排队 */
-                QSound::play(":/new/prefix1/sorryForNoService.wav");
+                QSound::play(":/sorryForNoService.wav");
                 QMessageBox::about(this, "一路平安", QString("很遗憾本次为没能为您提供服务, 期待下次再见。"));
             }
 
@@ -503,7 +503,7 @@ void MainWindow::on_leaveBtn_clicked()
                 if(hisBalance > totalFee){
                     // 然后从在站内车辆列表中删除
                     mPark->getNowlist()->removeAt(i);
-                    QSound::play(":/new/prefix1/PaySuccess.wav");
+                    QSound::play(":/PaySuccess.wav");
                     QMessageBox::about(this, "已自动从卡内扣费", "一路平安, 再见！..");
                     qDebug()<<"余额充足, 自动扣费..";
                     s = QString("update user set balance = %1 where id='%2' ;").arg(hisBalance - totalFee).arg(cusId);
@@ -532,12 +532,12 @@ void MainWindow::on_leaveBtn_clicked()
                             break;
                         }
                         else{
-                            QSound::play(":/new/prefix1/NoEnoughPay.wav");
+                            QSound::play(":/NoEnoughPay.wav");
                             QMessageBox::critical(this, "缴费中..", QString("您没有缴纳足够的费用哦, 请继续支付。"));
                         }
 
                       }while(payValue < totalFee);
-                        QSound::play(":/new/prefix1/PaySuccess.wav");
+                        QSound::play(":/PaySuccess.wav");
                         QMessageBox::about(this, "提示", "您已完成缴费..");
                 }
             }
@@ -545,6 +545,7 @@ void MainWindow::on_leaveBtn_clicked()
 
         else{
             QMessageBox::critical(this, "错误信息", "停车场内并没有这辆车哦！");
+            break;
         }
     }
 

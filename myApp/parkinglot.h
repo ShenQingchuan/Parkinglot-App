@@ -3,7 +3,6 @@
 
 #include "pslot.h"
 #include "nowinfo.h"
-#include "announce.h"
 #include "customer.h"
 #include <QQueue>
 
@@ -23,7 +22,6 @@ private:
 
     // 所有入站的车辆信息列表:
     QList<Nowinfo *> nowlist;  // 最多能入站7个，多的就空着。
-    Announce *annc;   // 停车场公告
 
 public:
     Parkinglot();
@@ -36,7 +34,6 @@ public:
     void incRemain();
     QList<Nowinfo *>* getNowlist();
     QList<Pslot>* getPs_list();
-    Announce *getAnnc() const;
     void setNowlist(const QList<Nowinfo *> &value);
     QQueue<Customer*>* getWq();
 };

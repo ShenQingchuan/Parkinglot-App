@@ -31,7 +31,6 @@ SOURCES += \
         mainwindow.cpp \
     parkinglot.cpp \
     pslot.cpp \
-    announce.cpp \
     nowinfo.cpp \
     customer.cpp \
     about.cpp \
@@ -41,7 +40,6 @@ HEADERS += \
         mainwindow.h \
     pslot.h \
     parkinglot.h \
-    announce.h \
     nowinfo.h \
     customer.h \
     about.h \
