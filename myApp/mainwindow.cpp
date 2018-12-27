@@ -47,6 +47,17 @@ MainWindow::MainWindow(QWidget *parent) :
       if(connect_ok)  qDebug()<<"Mysql Database connected..";
       else qDebug()<<"Mysql Database connected False..";
     mQuery = QSqlQuery(mDb);
+    QString qs = QString("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='user';");
+    mQuery.exec(qs);
+    while(mQuery.next()){
+        qDebug()<< mQuery.value(0).toInt();
+        if(mQuery.value(0) == 0)
+            qDebug()<< "here in";
+            qs = QString("CREATE TABLE user(id text primary key, balance double, total text, bonus int); ");
+            mQuery.exec(qs);
+            qs = QString("CREATE TABLE parkingCache(id text, enTime text);");
+            mQuery.exec(qs);
+    }
 
 
     // 从数据库中加载上一次关闭程序后保存的Cache余留信息:
@@ -94,7 +105,7 @@ void MainWindow::initDB(){
     }else {
 
         mDb = QSqlDatabase::addDatabase("QSQLITE");
-        mDb.setDatabaseName("parkingUser.db");
+        mDb.setDatabaseName(QString((QApplication::applicationDirPath() + "/parkingUser.db")));
     }
 }
 

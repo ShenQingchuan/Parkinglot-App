@@ -103,7 +103,7 @@ public:
         income->setStyleSheet(QStringLiteral("font: 75 16pt \"Berlin Sans FB\";"));
         income_label = new QLabel(centralWidget);
         income_label->setObjectName(QStringLiteral("income_label"));
-        income_label->setGeometry(QRect(1040, 100, 101, 51));
+        income_label->setGeometry(QRect(1000, 100, 141, 51));
         income_label->setStyleSheet(QString::fromUtf8("font: 75 18pt \"\347\255\211\347\272\277\";"));
         entryBtn = new QPushButton(centralWidget);
         entryBtn->setObjectName(QStringLiteral("entryBtn"));
@@ -114,7 +114,7 @@ public:
         logo->setGeometry(QRect(1300, 40, 421, 181));
         remain_label = new QLabel(centralWidget);
         remain_label->setObjectName(QStringLiteral("remain_label"));
-        remain_label->setGeometry(QRect(1030, 170, 121, 41));
+        remain_label->setGeometry(QRect(1000, 160, 161, 61));
         remain_label->setStyleSheet(QString::fromUtf8("font: 75 18pt \"\347\255\211\347\272\277\";"));
         leaveBtn = new QPushButton(centralWidget);
         leaveBtn->setObjectName(QStringLiteral("leaveBtn"));

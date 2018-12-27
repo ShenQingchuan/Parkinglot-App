@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="appicon.qrc">
+   <iconset>
     <normaloff>:/new/prefix1/icon.ico</normaloff>:/new/prefix1/icon.ico</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -131,9 +131,9 @@
    <widget class="QLabel" name="income_label">
     <property name="geometry">
      <rect>
-      <x>1040</x>
+      <x>1000</x>
       <y>100</y>
-      <width>101</width>
+      <width>141</width>
       <height>51</height>
      </rect>
     </property>
@@ -176,10 +176,10 @@
    <widget class="QLabel" name="remain_label">
     <property name="geometry">
      <rect>
-      <x>1030</x>
-      <y>170</y>
-      <width>121</width>
-      <height>41</height>
+      <x>1000</x>
+      <y>160</y>
+      <width>161</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -349,8 +349,6 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="appicon.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
