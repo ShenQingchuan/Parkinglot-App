@@ -499,6 +499,7 @@ void MainWindow::on_leaveBtn_clicked()
     int i;
     for(i=0; i<mPark->getNowlist()->length(); i++){
         // 遍历入站列表, 查找并得到该出站用户的结算费用
+        qDebug()<< "i = " << i;
         if(mPark->getNowlist()->at(i)->getCarId() ==  cusId){
             totalFee = mPark->getNowlist()->at(i)->getFee();
 
@@ -549,14 +550,17 @@ void MainWindow::on_leaveBtn_clicked()
                         }
 
                       }while(payValue < totalFee);
-                        QSound::play(":/PaySuccess.wav");
-                        QMessageBox::about(this, "提示", "您已完成缴费..");
+
+                    QSound::play(":/PaySuccess.wav");
+                    QMessageBox::about(this, "提示", "您已完成缴费..");
+                    goto USERLEAVEFLAG;
                 }
             }
         }
 
     }
 
+    USERLEAVEFLAG:
     if( i == mPark->getNowlist()->length() ){
         QMessageBox::critical(this, "错误信息", "停车场内并没有这辆车哦！");
     }
