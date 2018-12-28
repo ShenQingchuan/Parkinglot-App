@@ -496,9 +496,10 @@ void MainWindow::on_leaveBtn_clicked()
 
     /* 弹出一个带输入的Dialog, 输入 个人车牌号以模拟刷卡 */
     QString cusId = swipeMonitor();
-    for(int i=0; i<mPark->getNowlist()->length(); i++){
+    int i;
+    for(i=0; i<mPark->getNowlist()->length(); i++){
         // 遍历入站列表, 查找并得到该出站用户的结算费用
-        if(mPark->getNowlist()->at(i)->getCarId() == cusId){
+        if(mPark->getNowlist()->at(i)->getCarId() ==  cusId){
             totalFee = mPark->getNowlist()->at(i)->getFee();
 
             QString s = QString("select balance from user where id='%1' ;").arg(cusId);
@@ -554,10 +555,10 @@ void MainWindow::on_leaveBtn_clicked()
             }
         }
 
-        else{
-            QMessageBox::critical(this, "错误信息", "停车场内并没有这辆车哦！");
-            break;
-        }
+    }
+
+    if( i == mPark->getNowlist()->length() ){
+        QMessageBox::critical(this, "错误信息", "停车场内并没有这辆车哦！");
     }
 
     // 结束完出站的工作, 立即检查当前是否有空位了,
